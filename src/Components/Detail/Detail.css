@@ -1,10 +1,28 @@
 .Details {
     position: relative;
     top: 6em;
+    height: 100%;
 }
 
 .neighbouring {
     display: flex;
     flex-direction: row;
     flex: content;
+    width: 80%;
+    overflow-x: scroll;
+}
+
+.covid-tracker {
+    border-width: 20px;
+    border-color: black;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    left: 50%;
+    height: 100%;
+}
+
+.info {
+    width: 50%;
+    height: 100%;
 }

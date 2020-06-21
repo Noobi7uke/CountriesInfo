@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <Header onSearch={setCountries} />
       <List countries={countries} setCountry={setCountry} />
-      <Detail country={country} setCountry={setCountry} />
+      <Detail country={country} setCountry={setCountry}  />
       <Footer />
     </div>
   );

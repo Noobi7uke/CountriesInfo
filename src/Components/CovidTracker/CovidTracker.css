@@ -1,0 +1,6 @@
+.loader {
+    position: absolute;
+    left: 45%;
+    top: 40%;
+    transform: scale(2);
+}
