@@ -1,0 +1,10 @@
+.Details {
+    position: relative;
+    top: 6em;
+}
+
+.neighbouring {
+    display: flex;
+    flex-direction: row;
+    flex: content;
+}
