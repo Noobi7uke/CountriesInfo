@@ -1,15 +1,16 @@
 .Details {
     position: relative;
     top: 6em;
-    height: 100%;
+    height: 50em;
+    background-color: antiquewhite;
 }
 
 .neighbouring {
     display: flex;
     flex-direction: row;
     flex: content;
+    flex-wrap: wrap;
     width: 80%;
-    overflow-x: scroll;
 }
 
 .covid-tracker {
@@ -25,4 +26,11 @@
 .info {
     width: 50%;
     height: 100%;
+}
+
+.Loader .lds-roller {
+    transform: scale(2);
+    position: relative;
+    left: 10em;
+    top: 20em;
 }

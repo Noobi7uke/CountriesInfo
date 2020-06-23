@@ -3,7 +3,7 @@ import $ from 'jquery';
 import './Detail.css'
 import Country from '../Flag/Country';
 import CovidTracker from '../CovidTracker/CovidTracker';
-
+import Loading from '../Loading/Loading'
 function Detail(props) {
     
     if (props.country === null)
@@ -12,7 +12,18 @@ function Detail(props) {
                 <p>No country selected</p>
             </div>
         );
-    else
+    else if (props.country.isFound == false)
+        return (
+            <div className="Details">
+                <div className="Loader">
+                    <Loading />
+                </div>
+                <div class="Loader">
+                     <Loading />
+                </div>
+            </div>
+        );
+    else 
         return (
             <div className="Details">
                 <div className="info">

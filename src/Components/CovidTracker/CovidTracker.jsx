@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import $ from 'jquery';
-import Loading from './Loading/Loading';
+import Loading from '../Loading/Loading';
 import './CovidTracker.css';
 
 function CovidTracker(props) {
@@ -22,28 +22,35 @@ function CovidTracker(props) {
         return (
             <div>
                 <ul>
-                    <li>Total </li>
-                    <ul>
-                        <li>Cases:  {covidData.cases} </li>
-                        <li>Deaths: {covidData.deaths} </li>
-                        <li>Recovered: {covidData.recovered} </li>
-                        <li>Active Cases:  {covidData.active}</li>
-                    </ul>
-                    <li>Today</li>
-                    <ul>
-                        <li>Cases:  {covidData.todayCases}</li>
-                        <li>Deaths:  {covidData.todayDeaths}</li>
-                        <li>Recovered:  {covidData.todayRecovered}</li>
-                    </ul>
-                    <li>Data per million</li>
-                    <ul>
-                        <li>Cases per Million:   {covidData.casesPerOneMillion}</li>
-                        <li>Deaths per Million:  {covidData.deathsPerOneMillion}</li>
-                        <li>Critical per Million:   {covidData.criticalPerOneMillion}</li>
-                    </ul>
-                    <li>One test per {covidData.oneTestPerPeople} people.</li>
-                    <li>One case per {covidData.oneCasePerPeople} people. </li>
-                    <li>One death per {covidData.oneDeathPerPeople} people.</li>
+                    {(covidData.cases || covidData.deaths || covidData.recovered || covidData.active) &&
+                        <li>Total 
+                            <ul>
+                                {covidData.cases  && <li>Cases:  {covidData.cases} </li>}
+                                {covidData.deaths && <li>Deaths: {covidData.deaths} </li>}
+                                {covidData.recovered && <li>Recovered: {covidData.recovered} </li>}
+                                {covidData.active && <li>Active Cases:  {covidData.active}</li>}
+                            </ul>
+                        </li>
+                    }
+                    {(covidData.todayCases || covidData.todayDeaths || covidData.todayRecovered) &&
+                        <li>Today
+                            <ul>
+                                {covidData.todayCases && <li>Cases:  {covidData.todayCases}</li>}
+                                {covidData.todayDeaths && <li>Deaths:  {covidData.todayDeaths}</li>}
+                                {covidData.todayRecovered && <li>Recovered:  {covidData.todayRecovered}</li>}
+                            </ul>
+                    </li>}
+                    {(covidData.casesPerOneMillion || covidData.deathsPerOneMillion || covidData.criticalPerOneMillion) &&
+                        <li>Data per million
+                            <ul>
+                                {covidData.casesPerOneMillion && <li>Cases per Million:   {covidData.casesPerOneMillion}</li>}
+                                {covidData.deathsPerOneMillion && <li>Deaths per Million:  {covidData.deathsPerOneMillion}</li>}
+                                {covidData.criticalPerOneMillion && <li>Critical per Million:   {covidData.criticalPerOneMillion}</li>}
+                            </ul>
+                    </li>}
+                    {covidData.oneTestPerPeople && <li>One test per {covidData.oneTestPerPeople} people.</li>}
+                    {covidData.oneCasePerPeople && <li>One case per {covidData.oneCasePerPeople} people. </li>}
+                    {covidData.oneDeathPerPeople && <li>One death per {covidData.oneDeathPerPeople} people.</li>}
                 </ul>                
             </div>
         )

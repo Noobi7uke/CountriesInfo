@@ -4,11 +4,12 @@ import './Country.css';
 
 function Country(props) {
     function handleClick(event) {
+        props.setCountry({ isFound: false });
         $.ajax({
             url: `https://restcountries.eu/rest/v2/alpha/${props.code}`,
             method: 'GET'
         }).done(data => {
-            props.setCountry(data);
+            props.setCountry({ ...data, isFound: true });
         });
     }
     return (
